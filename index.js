@@ -1,6 +1,9 @@
-var express = require('express')
-var app = express()
-
+const WebSocketServer = require('ws').Server,
+  express = require('express'),
+  https = require('https'),
+  app = express(),
+  fs = require('fs');
+  
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
