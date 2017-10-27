@@ -2,18 +2,11 @@
   "name": "simple-video-chat",
   "version": "0.1.0",
   "description": "Implement a simple audio/video chat by using WebRTC",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "keywords": [
-    "WebRTC",
-    "Video",
-    "Audio",
-    "JavaScript",
-    "HTML"
-  ],
   "dependencies": {
     "express": "^4.14.0",
     "fs": "0.0.1-security",
