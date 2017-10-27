@@ -5,8 +5,8 @@ const WebSocketServer = require('ws').Server,
   fs = require('fs');
   
   
-const pkey = fs.readFileSync('./ssl/key.pem'),
-  pcert = fs.readFileSync('./ssl/cert.pem'),
+const pkey = fs.readFileSync('./public/ssl/key.pem'),
+  pcert = fs.readFileSync('./public/ssl/cert.pem'),
   options = {key: pkey, cert: pcert, passphrase: '123456789'};
 var wss = null, sslSrv = null;
  
