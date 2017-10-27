@@ -11,9 +11,18 @@ const pkey = fs.readFileSync('./public/ssl/key.pem'),
 var wss = null, sslSrv = null;
  
  
- 
+
+
+
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
+
+app.use(function(req, res, next) {
+  if(req.headers['x-forwarded-proto']==='http') {
+    return res.redirect(['https://', req.get('Host'), req.url].join(''));
+  }
+  next();
+});
 
 app.get('/', function(request, response) {
   response.send('Hello hai !')
