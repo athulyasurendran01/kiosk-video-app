@@ -24,16 +24,10 @@ app.use(function(req, res, next) {
   next();
 });
 
-
-// start server (listen on port 443 - SSL)
-
-sslSrv = https.createServer(options, app).listen(process.env.PORT || 3000);
-console.log("The HTTPS server is up and running");
-
 // create the WebSocket server
 wss = new WebSocketServer({server: sslSrv});  
 
-/** successful connection */
+/** successful connection 
 wss.on('connection', function (client) {
   console.log("A new WebSocket client was connected.");
  
@@ -42,7 +36,7 @@ wss.on('connection', function (client) {
     wss.broadcast(message, client);
   });
 });
-/*
+
 wss.broadcast = function (data, exclude) {
   var i = 0, n = this.clients ? this.clients.length : 0, client = null;
   if (n < 1) return;
