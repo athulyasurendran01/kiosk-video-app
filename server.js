@@ -22,7 +22,7 @@ wss.on('connection', (ws) => {
   });
   
   
-  ws.on('close', () => console.log('Client disconnected'));
+  //ws.on('close', () => console.log('Client disconnected'));
 });
 
 
@@ -38,9 +38,3 @@ wss.broadcast = function (data, exclude) {
     else console.error('Error: the client state is ' + client.readyState);
   }
 };
-
-setInterval(() => {
-  wss.clients.forEach((client) => {
-    client.send(new Date().toTimeString());
-  });
-}, 1000);
