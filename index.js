@@ -11,8 +11,6 @@ const pkey = fs.readFileSync('./public/ssl/key.pem'),
 var wss = null, sslSrv = null;
  
  
- 
-wss = new WebSocketServer({server: sslSrv});  
 
 
 app.set('port', (process.env.PORT || 5000))
