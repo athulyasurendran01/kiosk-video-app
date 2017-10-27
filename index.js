@@ -25,4 +25,4 @@ app.listen(app.get('port'), function() {
 })
 
 
-const wss = new WebSocket.Server({ port: app.get('port') });
+wss = new WebSocket.Server({ port: app.get('port') });
