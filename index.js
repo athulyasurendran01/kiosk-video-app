@@ -4,11 +4,19 @@ const WebSocketServer = require('ws').Server,
   app = express(),
   fs = require('fs');
   
+  
+const pkey = fs.readFileSync('./ssl/key.pem'),
+  pcert = fs.readFileSync('./ssl/cert.pem'),
+  options = {key: pkey, cert: pcert, passphrase: '123456789'};
+var wss = null, sslSrv = null;
+ 
+ 
+ 
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-  response.send('Hello !')
+  response.send('Hello hai !')
 })
 
 app.listen(app.get('port'), function() {
