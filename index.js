@@ -10,7 +10,7 @@ const pkey = fs.readFileSync('./public/ssl/key.pem'),
   options = {key: pkey, cert: pcert, passphrase: '123456789'}; 
  
 
-app.set('port', (process.env.PORT || 1255))
+app.set('port', (process.env.PORT || 8080))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
