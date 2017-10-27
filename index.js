@@ -7,14 +7,10 @@ const WebSocket = require('ws'),
   
 const pkey = fs.readFileSync('./public/ssl/key.pem'),
   pcert = fs.readFileSync('./public/ssl/cert.pem'),
-  options = {key: pkey, cert: pcert, passphrase: '123456789'};
-var wss = null, sslSrv = null;
- 
- 
+  options = {key: pkey, cert: pcert, passphrase: '123456789'}; 
  
 
-sslSrv = https.createServer(options, app).listen(process.env.PORT || 5000);
-
+app.set('port', ( 3000))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
@@ -26,4 +22,12 @@ app.listen(app.get('port'), function() {
 })
 
 
-wss = new WebSocket.Server({ server: sslSrv });
+const wss = new WebSocket.Server({ port: 3000 });
+
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(message) {
+    console.log('received: %s', message);
+  });
+
+  ws.send('something');
+});
