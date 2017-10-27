@@ -33,8 +33,6 @@ console.log("The HTTPS server is up and running");
 // create the WebSocket server
 wss = new WebSocketServer({server: sslSrv});  
 
-
-
 /** successful connection */
 wss.on('connection', function (client) {
   console.log("A new WebSocket client was connected.");
@@ -44,7 +42,7 @@ wss.on('connection', function (client) {
     wss.broadcast(message, client);
   });
 });
-// broadcasting the message to all WebSocket clients.
+
 wss.broadcast = function (data, exclude) {
   var i = 0, n = this.clients ? this.clients.length : 0, client = null;
   if (n < 1) return;
@@ -58,24 +56,9 @@ wss.broadcast = function (data, exclude) {
   }
 };
 
-{
-  mandatory: {
-    width: { min: 640 }
-    height: { min: 480 }
-  }
-  optional: [
-    { width: 650 },
-    { width: { min: 650 }},
-    { frameRate: 60 },
-    { width: { max: 800 }},
-    { facingMode: "user" }
-  ]
-}
-
-
 
 app.get('/', function(request, response) {
-  response.send('Hello hai !')
+  response.send('Hello !')
 })
 
 app.listen(app.get('port'), function() {
