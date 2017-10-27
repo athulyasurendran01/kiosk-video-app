@@ -42,7 +42,7 @@ wss.on('connection', function (client) {
     wss.broadcast(message, client);
   });
 });
-
+/*
 wss.broadcast = function (data, exclude) {
   var i = 0, n = this.clients ? this.clients.length : 0, client = null;
   if (n < 1) return;
@@ -54,7 +54,7 @@ wss.broadcast = function (data, exclude) {
     if (client.readyState === client.OPEN) client.send(data);
     else console.error('Error: the client state is ' + client.readyState);
   }
-};
+};*/
 
 
 app.get('/', function(request, response) {
