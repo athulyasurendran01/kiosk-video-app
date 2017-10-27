@@ -10,7 +10,7 @@ const pkey = fs.readFileSync('./public/ssl/key.pem'),
   options = {key: pkey, cert: pcert, passphrase: '123456789'}; 
  
 
-app.set('port', ( 3000))
+app.set('port', (process.env.PORT || 1255))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
@@ -22,7 +22,7 @@ app.listen(app.get('port'), function() {
 })
 
 
-const wss = new WebSocket.Server({ port: 3000 });
+const wss = new WebSocket.Server({ port: app.get('port') });
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
