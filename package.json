@@ -1,17 +1,21 @@
 {
-  "name": "node-js-sample",
-  "version": "0.2.0",
-  "description": "A sample Node.js app using Express 4",
+  "name": "websockets-vanilla",
+  "version": "1.0.0",
+  "engines": {
+    "node": "6.2.0"
+  },
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0",
-    "fs": "0.0.1-security",
-    "ws": "^1.1.4"
-  },
-  "engines": {
-  "node": "6.2.0"
-},
+    "bufferutil": "1.2.1",
+    "express": "4.13.4",
+    "utf-8-validate": "1.2.1",
+    "ws": "1.1.0"
+  }
 }
