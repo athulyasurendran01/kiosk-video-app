@@ -3,12 +3,12 @@ const WebSocketServer = require('ws').Server,
   https = require('https'),
   app = express(),
   fs = require('fs');
-
+/*
 const pkey = fs.readFileSync('./ssl/key.pem'),
   pcert = fs.readFileSync('./ssl/cert.pem'),
   options = {key: pkey, cert: pcert, passphrase: '123456789'};
 var wss = null, sslSrv = null;
- 
+ */
 // use express static to deliver resources HTML, CSS, JS, etc)
 // from the public folder 
 app.use(express.static('public'));
