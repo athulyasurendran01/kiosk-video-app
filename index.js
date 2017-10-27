@@ -13,7 +13,8 @@ var wss = null, sslSrv = null;
  
  
 
-app.set('port', (5000))
+sslSrv = https.createServer(options, app).listen(process.env.PORT || 5000);
+
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
@@ -25,4 +26,4 @@ app.listen(app.get('port'), function() {
 })
 
 
-wss = new WebSocket.Server({ port: process.env.PORT });
+wss = new WebSocket.Server({ server: sslSrv });
